@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multicine Potosí · Cartelera</title>
+  <link rel="stylesheet" href="cartelera.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">MP</span>
+      <div>
+        <strong>Multicine Potosí</strong>
+        <span>Cartelera y boletería en línea</span>
+      </div>
+    </div>
+    <nav class="top-nav">
+      <button class="nav-link active" data-target="cartelera">Cartelera</button>
+      <button class="nav-link" data-target="buscar">Mis reservas</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section id="panel-cartelera" class="panel-view active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Hoy en cartelera</p>
+          <h1>Elige tu película, función y asientos</h1>
+          <p class="hero-sub">Compra tus entradas y suma confitería en una sola reserva. Recibirás un código para presentar en boletería.</p>
+        </div>
+        <div class="hero-promos" id="hero-promos"></div>
+      </div>
+
+      <div id="cartelera-lista" class="movie-grid"></div>
+
+      <section id="proximos-wrap" class="proximos" hidden>
+        <h2>Próximos estrenos</h2>
+        <div id="proximos-lista" class="movie-grid compact"></div>
+      </section>
+
+      <section class="confiteria-publica">
+        <h2>Dulcería</h2>
+        <p class="section-sub">Agrega combos y snacks a tu compra, se sumarán al total de tu reserva.</p>
+        <div id="confiteria-lista" class="product-grid"></div>
+      </section>
+    </section>
+
+    <section id="panel-buscar" class="panel-view">
+      <div class="buscar-card">
+        <h1>Consultar reserva</h1>
+        <p class="hero-sub">Ingresa el código que aparece en tu ticket, por ejemplo MP-XXXXXX.</p>
+        <form id="buscar-form" class="buscar-form">
+          <input id="buscar-codigo" type="text" placeholder="MP-XXXXXX" autocomplete="off" required>
+          <button class="btn primary" type="submit">Buscar</button>
+        </form>
+        <div id="buscar-resultado"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay" hidden>
+    <div id="drawer" class="drawer"></div>
+  </div>
+
+  <div id="toasts" class="toasts"></div>
+
+  <template id="ticket-template">
+    <div class="ticket">
+      <div class="ticket-head">
+        <div>
+          <p class="eyebrow">Ticket de reserva</p>
+          <h2 id="ticket-pelicula"></h2>
+          <p id="ticket-funcion" class="ticket-sub"></p>
+        </div>
+        <div class="ticket-code">
+          <span>Código</span>
+          <strong id="ticket-codigo"></strong>
+        </div>
+      </div>
+      <div class="ticket-body">
+        <div class="ticket-code-display" id="ticket-code-display" role="group" aria-label="Código de reserva"></div>
+        <div class="ticket-detalle" id="ticket-detalle"></div>
+      </div>
+      <p class="ticket-foot">Presenta este código en boletería. Llega 15 minutos antes de la función.</p>
+    </div>
+  </template>
+
+  <script src="cartelera.js"></script>
+</body>
+</html>
